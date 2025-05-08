@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BorCelle - Smart Fuel Delivery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000000;
+            color: white;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: black;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .navbar .logo {
+            font-size: 35px;
+            font-weight: bold;
+            color: #66cc66;
+        }
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: url('front2.png') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 50px;
+            color: white;
+        }
+        .hero h1 {
+            font-size: 40px;
+            max-width: 600px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            background: #66cc66;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px;
+            position: relative;
+        }
+        .text-section {
+            width: 50%;
+        }
+        .map {
+            width: 50%;
+            text-align: center;
+            position: relative;
+            margin-top: 5%;
+        }
+        .map img {
+            width: 105%;
+        }
+        .heading {
+            color: #66cc66;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .heading1 {
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 17px;
+        }
+        .feature-list {
+            margin-top: 20px;
+            font-size: 30px;
+        }
+        .feature-list div {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            font-size: 50px;
+        }
+        .feature-list img {
+            width: 20px;
+            margin-right: 10px;
+        }
+        .location-point {
+            position: absolute;
+            top: 48%;
+            left: 72%;
+            width: 15px;
+            height: 15px;
+            background-color: #14e014;
+            border-radius: 50%;
+            box-shadow: 0 0 10px red;
+            animation: blink 0.5s infinite alternate;
+        }
+        .location-point1 {
+            position: absolute;
+            top: 50%;
+            left: 64%;
+            width: 15px;
+            height: 15px;
+            background-color: #14e014;
+            border-radius: 50%;
+            box-shadow: 0 0 10px red;
+            animation: blink 0.5s infinite alternate;
+        }
+        .location-point2 {
+            position: absolute;
+            top: 33%;
+            left: 67%;
+            width: 15px;
+            height: 15px;
+            background-color: #14e014;
+            border-radius: 50%;
+            box-shadow: 0 0 10px red;
+            animation: blink 0.5s infinite alternate;
+        }
+        @keyframes blink {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0.5;
+                transform: scale(1.5);
+            }
+        }
+        .footer {
+            background: #222;
+            padding: 30px 0;
+            text-align: center;
+        }
+        .footer-container {
+            width: 80%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        .footer-section {
+            text-align: left;
+            width: 30%;
+        }
+        .footer-section h2 {
+            color: #66cc66;
+            margin-bottom: 15px;
+        }
+        .footer-section p,
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+        .contact-info {
+            margin-top: 10px;
+        }
+        .contact-info p {
+            margin: 10px 0;
+            margin-top: 20px;
+            color: rgb(255, 255, 255);
+        }
+        .social-icons {
+            margin-top: 20px;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            font-size: 18px;
+            color: white;
+        }
+        .terms {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Bor<span style="color:white;">Celle</span></div>
+        <div>
+            <a href="#">Home</a>
+            <a href="#">Company</a>
+            <a href="#">Solution</a>
+            <a href="#">Contact Us</a>
+        </div>
+    </nav>
+    <section class="hero">
+        <p>Revolutionising Fuel Delivery with Every Click</p>
+        <h1>Redefining the Power Behind Smart & Simple Energy Distribution</h1>
+        <div class="buttons">
+            <button class="btn" onclick="window.location.href='place_order.html'">Fuel Up Now</button>
+        </div>
+    </section>
+    <div class="container">
+        <div class="text-section">
+            <p class="heading">Taking over the World's Fueling Needs</p>
+            <h1>Your One-stop Solution</h1>
+            <p class="heading1">Our innovative diesel delivery services backed by IoT-based products are meticulously crafted to cater to the specific requirements of diverse businesses, including those in mining, construction sites, and plants, fleet management, hospitality, hotels, commercial residences, schools, and colleges, as well as apartments...</p>
+            <div class="feature-list">
+                <ul class="features">
+                    <li>Easy-to-use App</li>
+                    <li>Championing on-time deliveries</li>
+                    <li>Save Time & Money</li>
+                    <li>Cashless Transactions</li>
+                    <li>Smart Storage & Monitoring</li>
+                </ul>
+            </div>
+        </div>
+        <div class="map">
+            <img src="worldmap.png" alt="World Map">
+            <div class="location-point"></div>
+            <div class="location-point1"></div>
+            <div class="location-point2"></div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h2>Quick Contact</h2>
+                <p>If you have any questions or need help, feel free to contact our team.</p>
+                <div class="contact-info">
+                    <p>✉ orderinfo@borcelle.in</p>
+                    <p>📞 +91-9623114400</p>
+                    <p>Treis Solutions LLP, First Floor, Tower B, ASF Towers, Plot no 249D, Udyog Vihar Phase 4, Gurugram, Haryana-122016.</p>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h2>Company</h2>
+                <p><a href="#">About Us</a></p>
+                <p><a href="#">Privacy Policy</a></p>
+                <p><a href="#">Our Products</a></p>
+            </div>
+            <div class="footer-section">
+                <h2>Solutions</h2>
+                <p><a href="#">DOT (Diesel on Tap)</a></p>
+                <p><a href="#">Smart Tank</a></p>
+                <p><a href="#">Buddy Can</a></p>
+            </div>
+        </div>
+        <div class="terms">
+            <p>&copy; 2025 BorCelle, All Rights Reserved.</p>
+            <p><a href="#">Terms & Conditions</a></p>
+        </div>
+    </footer>
+</body>
+</html>

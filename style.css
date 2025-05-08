@@ -1,0 +1,89 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body and Font */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(45deg, #6a11cb, #2575fc);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container for both forms */
+.signup-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Title */
+.title {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Form inputs and styling */
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-group label {
+  font-size: 14px;
+  color: #777;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 5px;
+  background-color: #f9f9f9;
+}
+
+/* Button */
+.btn {
+  background-color: #2575fc;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #1c61d1;
+}
+
+/* Links */
+.login-link {
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+.login-link a {
+  color: #2575fc;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Address Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('order.png') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 400px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .form-row {
+            display: flex;
+            gap: 10px;
+        }
+        .form-row .form-group {
+            flex: 1;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        .checkbox-group input {
+            width: 16px;
+            height: 16px;
+        }
+        .checkbox-group label {
+            font-size: 14px;
+            font-weight: bold;
+            color: green;
+        }
+        .add-note {
+            color: green;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        .button-container {
+            display: flex;
+            justify-content: flex-end; /* Align button to the right */
+            margin-top: 15px;
+        }
+        .proceed-btn {
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .proceed-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+<script>
+        function proceed() {
+            window.location.href = 'order_page2.html';
+        }
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Shipping Address Details</h2>
+        <form onsubmit="event.preventDefault(); proceed();">
+            <div class="form-group">
+                <label for="address1">Address Line 1:</label>
+                <input type="text" id="address1" name="address1" required>
+            </div>
+            <div class="form-group">
+                <label for="address2">Address Line 2:</label>
+                <input type="text" id="address2" name="address2">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="city">City:</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+                <div class="form-group">
+                    <label for="postal-code">Postal Code:</label>
+                    <input type="text" id="postal-code" name="postal-code" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="state">State:</label>
+                    <input type="text" id="state" name="state" required>
+                </div>
+                <div class="form-group">
+                    <label for="country">Country:</label>
+                    <input type="text" id="country" name="country" required>
+                </div>
+            </div>
+            <div class="add-note">Add Note</div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="same-address" name="same-address">
+                <label for="same-address">My shipping and billing address are the same.</label>
+            </div>
+            <div class="button-container">
+                <button type="submit" class="proceed-btn">Proceed</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

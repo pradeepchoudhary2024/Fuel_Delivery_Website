@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Quantity</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 400px;
+            text-align: center;
+        }
+        .product-label {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .product-box {
+            display: flex;
+            align-items: center;
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .product-box span {
+            font-weight: bold;
+        }
+        .price {
+            color: green;
+            margin-left: 5px;
+        }
+        .input-box {
+            margin-left: auto;
+        }
+        .input-box input {
+            width: 70px;
+            padding: 5px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .continue-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #6aa785;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .continue-btn:hover {
+            background: #5a9774;
+        }
+    </style>
+    <script>
+        function validateInput(event) {
+            if (event.target.value > 5000) {
+                event.target.value = 5000;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h3>Product Quantity</h3>
+        <div class="product-box">
+            <span>Diesel -</span>
+            <span class="price">(₹ 91/ litre)</span>
+            <div class="input-box">
+                <input type="number" value="0" min="0" max="5000" oninput="validateInput(event)">
+            </div>
+        </div>
+        <button class="continue-btn">Continue</button>
+    </div>
+</body>
+</html>

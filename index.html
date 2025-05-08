@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BorCelle - Smart Fuel Delivery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .front1 {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: black;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .navbar .logo {
+            font-size: 35px;
+            font-weight: bold;
+            color: #66cc66;
+        }
+
+        .hero {
+            position: relative;
+            width: 100%;
+            height: calc(100vh - 70px);
+            background: url('hero.png') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 50px;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            max-width: 600px;
+        }
+
+        .buttons {
+            margin-top: 20px;
+
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background: #66cc66;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+
+        .front2 {
+            font-family: Arial, sans-serif;
+            background-color: #eaf4ee;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .front2 {
+            width: 100%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .front2 h1 {
+            color: #2c3e50;
+        }
+
+        .front2 p {
+            color: #555;
+            font-size: 20px;
+        }
+
+        .front2 .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .front2 .text-section {
+            width: 50%;
+            text-align: left;
+        }
+
+        .front2 .text-section h3 {
+            color: #2c3e50;
+            font-size: 30px;
+        }
+
+        .front2 .image-section {
+            width: 40%;
+        }
+
+        .front2 .image-section img {
+            width: 100%;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .front3 {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        .front3 .container {
+            width: 80%;
+            margin: auto;
+            padding: 50px 0;
+        }
+
+        .front3 h1 {
+            width: 70%;
+            font-size: 34px;
+            font-weight: bold;
+            color: black;
+            text-align: center;
+            line-height: 1.3;
+            margin-top: 20px;
+        }
+
+        .front3 .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .front3 .text-section {
+            width: 50%;
+            text-align: left;
+            padding-left: 7%;
+        }
+
+        .front3 .text-section h2 {
+            color: #006400;
+            font-size: 30px;
+        }
+
+        .front3 .text-section p {
+            color: #000000;
+            font-size: 20px;
+        }
+
+        .front3 .graphic {
+            width: 60%;
+            position: relative;
+        }
+
+        .front3 .graphic img {
+            width: 90%;
+            border: none;
+        }
+
+        .front3 .features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .front3 .features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .front3 .features li::before {
+            content: '\2714';
+            color: green;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .front3 .order-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            text-decoration: none;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        .front4 {
+            width: 90%;
+            margin: 50px auto;
+        }
+
+        .front4 .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .front4 .gallery div {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .front4 .gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease, filter 0.4s ease;
+            border-radius: 10px;
+        }
+
+        .front4 .gallery div::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0);
+            transition: background 0.4s ease;
+        }
+
+        .front4 .gallery div:hover img {
+            transform: scale(1.1);
+            filter: brightness(0.7);
+        }
+
+        .front4 .gallery div:hover::after {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .front4 .gallery {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .front4 .gallery {
+                grid-template-columns: repeat(1, 1fr);
+                grid-template-rows: repeat(8, 1fr);
+            }
+        }
+
+        .front5 {
+            background-color: #000000;
+            color: white;
+            padding: 50px;
+        }
+
+        .front5 .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .front5 .text-section {
+            width: 50%;
+        }
+
+        .front5 .map {
+            width: 50%;
+            text-align: center;
+            position: relative;
+            margin-top: 5%;
+        }
+
+        .front5 .map img {
+            width: 105%;
+        }
+
+        .front5 .heading {
+            color: #66cc66;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .front5 .heading1 {
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        .front5 .feature-list {
+            margin-top: 20px;
+            font-size: 30px;
+        }
+
+        .front5 .feature-list div {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            font-size: 50px;
+        }
+
+        .front5 .feature-list img {
+            width: 20px;
+            margin-right: 10px;
+        }
+
+        /* Location points */
+        .front5 .location-point,
+        .front5 .location-point1,
+        .front5 .location-point2 {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: #14e014;
+            border-radius: 50%;
+            box-shadow: 0 0 10px red;
+            animation: blink 0.5s infinite alternate;
+        }
+
+        /* Adjust positions for different locations */
+        .front5 .location-point {
+            top: 48%;
+            /* India */
+            left: 72%;
+        }
+
+        .front5 .location-point1 {
+            top: 50%;
+            /* Saudi Arabia, Dhahran */
+            left: 64%;
+        }
+
+        .front5 .location-point2 {
+            top: 33%;
+            /* Russia, Surgut */
+            left: 67%;
+        }
+
+        .front5 .features li::before {
+            list-style: none;
+            content: '\2714';
+            color: rgb(34, 248, 130);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .front6 {
+            background-color: #000000;
+            color: white;
+        }
+
+        .front6 .footer {
+            background: #000000;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .front6 .footer-container {
+            width: 100%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .front6 .footer-section {
+            text-align: left;
+            width: 30%;
+        }
+
+        .front6 .footer-section h2 {
+            color: #66cc66;
+            margin-bottom: 15px;
+        }
+
+        .front6 .footer-section p,
+        .front6 .footer-section a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .front6 .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        .front6 .contact-info {
+            margin-top: 10px;
+        }
+
+        .front6 .contact-info p {
+            margin: 10px 0;
+            margin-top: 20px;
+            color: rgb(255, 255, 255);
+        }
+
+        .front6 .social-icons {
+            margin-top: 20px;
+        }
+
+        .front6 .social-icons a {
+            margin: 0 10px;
+            font-size: 18px;
+            color: white;
+        }
+
+        .front6 .terms p a {
+            color: aqua;
+            text-decoration-line: none;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 15px;
+        }
+
+        .front3 .centered-text {
+            text-align: center;
+            margin: 0 auto;
+            display: block;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            100% {
+                opacity: 0.5;
+                transform: scale(1.5);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="front1">
+        <nav class="navbar">
+            <div class="logo">Bor<span style="color:white;">Celle</span></div>
+            <div>
+                <a href="main.html">Home</a>
+                <a href="aboutCompany.html">Company</a>
+                <a href="Solution.html">Solution</a>
+                <a href="#contact-section">Contact Us</a>
+                <button class="btn" onclick="window.location.href='login.php'">Login</button>
+
+            </div>
+        </nav>
+        <section class="hero">
+            <p>Revolutionising Fuel Delivery with Every Click</p>
+            <h1>Redefining the Power Behind Smart & Simple Energy Distribution</h1>
+            <div class="buttons">
+                <button class="btn" onclick="window.location.href='login.php'">Fuel Up Now</button>
+            </div>
+        </section>
+    </div>
+    <div class="front2">
+        <br>
+        <h1>Five-Axis Technology Centred Approach</h1>
+        <p>Our five-axis approach revolves around technology as the core enabler, seamlessly connecting convenience,
+            cashless transactions, quality & quantity, and safety.</p>
+
+        <div class="content">
+            <div class="text-section">
+                <h3>Cashless Transactions</h3>
+                <p>Modernising fuel transactions with secure and efficient cashless options. Seamlessly complete
+                    payments for a hassle-free and convenient experience.</p>
+                <br><br>
+                <h3>Convenience</h3>
+                <p>Streamlined fuel delivery, user-friendly interfaces, and efficient logistics for a seamless
+                    experience. Convenience delivered to your doorstep.</p>
+                <br><br>
+                <h3>Quality & Quantity</h3>
+                <p>Precision fuel delivery, ensuring purity and accurate measurements. Elevate your fuel experience with
+                    our commitment to excellence.</p>
+                <br><br>
+                <h3>Safety</h3>
+                <p>Uncompromising safety in fuel delivery, from advanced monitoring to stringent protocols. Trust us for
+                    secure and reliable fuel services.</p>
+                <br><br>
+                <h3>Technology</h3>
+                <p>Technology plays a vital role in ensuring efficient fuel delivery and management enabling real-time
+                    monitoring, automation, and data that drives faster and more efficient decision-making.</p>
+            </div>
+            <div class="image-section">
+                <img src="front1.png" alt="Five Axis Diagram">
+            </div>
+        </div>
+    </div>
+    <!--Front3-->
+    <div class="front3">
+        <h1 class="centered-text">Bharat’s most loved and trusted Doorstep Diesel Delivery Service</h1>
+        <div class="content">
+            <div class="graphic">
+                <img src="fuelfill.png" alt="Fuel Delivery">
+            </div>
+            <div class="text-section">
+                <h2>Your go-to solution for seamless fueling experiences!</h2>
+                <p>Searching for a faster, more efficient way to refuel? Look no further. Our mission is to provide you
+                    with a seamless and secure experience, delivering the precise quality and quantity of diesel right
+                    at your fingertips.</p>
+                <ul class="features">
+                    <li>Easy-to-use App</li>
+                    <li>Championing on-time deliveries</li>
+                    <li>Save Time & Money</li>
+                    <li>Cashless Transactions</li>
+                    <li>Smart Storage & Monitoring</li>
+                </ul>
+                <a href="#" class="order-button">Order Now</a>
+            </div>
+        </div>
+    </div>
+    <div class="front4">
+        <div class="gallery">
+            <div><img src="1.png" alt="Gallery"></div>
+            <div><img src="2.png" alt="Gallery"></div>
+            <div><img src="3.png" alt="Gallery"></div>
+            <div><img src="4.png" alt="Gallery"></div>
+            <div><img src="5.png" alt="Gallery"></div>
+            <div><img src="6.png" alt="Gallery"></div>
+            <div><img src="7.png" alt="Gallery"></div>
+            <div><img src="8.png" alt="Gallery"></div>
+
+        </div>
+    </div>
+    <div class="front5">
+        <div class="container">
+            <div class="text-section">
+                <p class="heading">Taking over the World's Fueling Needs</p>
+                <h1>Your One-stop Solution</h1>
+                <p class="heading1">Our innovative diesel delivery services backed by IoT-based products are
+                    meticulously crafted to cater to the specific requirements of diverse businesses, including those in
+                    mining, construction sites, and plants, fleet management, hospitality, hotels, commercial
+                    residences, schools, and colleges, as well as apartments...</p>
+                <div class="feature-list">
+                    <ul class="features">
+                        <li>Easy-to-use App</li>
+                        <li>Championing on-time deliveries</li>
+                        <li>Save Time & Money</li>
+                        <li>Cashless Transactions</li>
+                        <li>Smart Storage & Monitoring</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="map">
+                <img src="worldmap.png" alt="World Map">
+                <div class="location-point"></div>
+                <div class="location-point1"></div>
+                <div class="location-point2"></div>
+            </div>
+        </div>
+        <div id="contact-section" class="front6">
+            <br>
+            <footer class="footer">
+                <div class="footer-container">
+                    <div class="footer-section">
+                        <h2>Quick Contact</h2>
+                        <p>If you have any questions or need help, feel free to contact our team.</p>
+                        <div class="contact-info">
+                            <p>✉ orderinfo@borcelle.in</p>
+                            <p>📞 +91-9623114400</p>
+                            <p>Treis Solutions LLP, First Floor, Tower B, ASF Towers, Plot no 249D, Udyog Vihar Phase 4,
+                                Gurugram, Haryana-122016.</p>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h2>Company</h2>
+                        <p><a href="#">About Us</a></p>
+                        <p><a href="#">Privacy Policy</a></p>
+                        <p><a href="#">Our Products</a></p>
+                    </div>
+                    <div class="footer-section">
+                        <h2>Solutions</h2>
+                        <p><a href="#">DOT (Diesel on Tap)</a></p>
+                        <p><a href="#">Smart Tank</a></p>
+                        <p><a href="#">Buddy Can</a></p>
+                    </div>
+                </div>
+                <div class="terms">
+                    <p>&copy; 2025 BorCelle, All Rights Reserved.</p>
+                    <p><a href="#">Terms & Conditions</a></p>
+                </div>
+            </footer>
+        </div>
+</body>
+
+</html>

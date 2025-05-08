@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+    <style>
+        /* Same styling as before, unchanged */
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 900px;
+            text-align: center;
+        }
+        .form-section {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            width: 48%;
+        }
+        .form-group {
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .tabs {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+        .tabs button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            background: #ddd;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .tabs .active {
+            background: #6aa785;
+            color: white;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .product-box {
+            display: flex;
+            align-items: center;
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            gap: 10px;
+        }
+        .input-box input {
+            width: 100px;
+            padding: 5px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .submit-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #6aa785;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="orderForm" action="process_orders.php" method="post">
+            <div class="form-section">
+                <div class="box">
+                    <h2>Shipping Address Details</h2>
+                    <div class="form-group"><input type="text" placeholder="Address Line 1" name="address_line1" required></div>
+                    <div class="form-group"><input type="text" placeholder="Address Line 2" name="address_line2"></div>
+                    <div class="form-group"><input type="text" placeholder="City" name="city" required></div>
+                    <div class="form-group"><input type="text" placeholder="Postal Code" name="postal_code" required pattern="\d{4,10}" title="Enter a valid postal code"></div>
+                    <div class="form-group"><input type="text" placeholder="State" name="state" required></div>
+                    <div class="form-group"><input type="text" placeholder="Country" name="country" required></div>
+                </div>
+                <div class="box">
+                    <h2>Add New Asset</h2>
+                    <input type="hidden" name="asset_type" id="selected_asset_type" value="genset">
+                    <div class="tabs">
+                        <button type="button" class="asset_type active" data-target="genset" value="genset">Genset</button>
+                        <button type="button" class="asset_type" data-target="tank" value="tank">Tank</button>
+                        <button type="button" class="asset_type" data-target="diesel" value="diesel">Diesel On Tap</button>
+                    </div>
+                    <div id="genset" class="tab-content active">
+                        <div class="form-group"><input type="text" placeholder="Name" name="genset_name" id="genset_name"></div>
+                        <div class="form-group"><input type="number" placeholder="Tank Capacity" name="genset_tank_capacity" id="genset_tank_capacity" min="1"></div>
+                        <div class="form-group"><input type="text" placeholder="Identification No" name="genset_identification_no" id="genset_identification_no"></div>
+                    </div>
+                    <div id="tank" class="tab-content">
+                        <div class="form-group"><input type="text" placeholder="Name" name="tank_name" id="tank_name"></div>
+                        <div class="form-group"><input type="number" placeholder="Tank Capacity" name="tank_tank_capacity" id="tank_tank_capacity" min="1"></div>
+                        <div class="form-group"><input type="text" placeholder="Identification No" name="tank_identification_no" id="tank_identification_no"></div>
+                    </div>
+                    <div id="diesel" class="tab-content">
+                        <div class="form-group"><input type="text" placeholder="Name" name="diesel_name" id="diesel_name"></div>
+                        <div class="form-group"><input type="number" placeholder="Tank Capacity" name="diesel_tank_capacity" id="diesel_tank_capacity" min="1"></div>
+                        <div class="form-group"><input type="text" placeholder="Identification No" name="diesel_identification_no" id="diesel_identification_no"></div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Product Quantity</h3>
+            <div class="product-box">
+                <span>Diesel -</span>
+                <span class="price">(₹ 91/ litre)</span>
+                <div class="input-box">
+                    <input type="number" name="quantity" value="0" min="0" max="5000" required>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // Handle tab switching
+        document.querySelectorAll('.asset_type').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.asset_type').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+                button.classList.add('active');
+                document.getElementById(button.dataset.target).classList.add('active');
+                document.getElementById("selected_asset_type").value = button.value;
+            });
+        });
+
+        // Form validation before submit
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            const type = document.getElementById("selected_asset_type").value;
+            let valid = true;
+
+            const fields = {
+                genset: ["genset_name", "genset_tank_capacity", "genset_identification_no"],
+                tank: ["tank_name", "tank_tank_capacity", "tank_identification_no"],
+                diesel: ["diesel_name", "diesel_tank_capacity", "diesel_identification_no"]
+            };
+
+            fields[type].forEach(id => {
+                const input = document.getElementById(id);
+                if (!input.value.trim()) {
+                    alert("Please fill out all fields for the selected asset type.");
+                    input.focus();
+                    valid = false;
+                }
+            });
+
+            if (!valid) {
+                e.preventDefault(); // prevent form submission
+            }
+        });
+    </script>
+</body>
+</html>
+

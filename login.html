@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+    <script>
+        function handleLogin(event) {
+            event.preventDefault(); // Prevent the default form submission
+            const userType = document.getElementById('userType').value;
+
+            if (userType === 'customer') {
+                window.location.href = 'customer_page.html'; // Redirect to the combined page
+            } else if (userType === 'fuelstation') {
+                window.location.href = 'FuelStation_Login.html'; // Redirect to the fuel station login page
+            } else if (userType === 'admin') {
+                window.location.href = 'Admin_Login_Page.html'; // Redirect to the admin login page
+            } else {
+                alert('This feature is not implemented for the selected user type.');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="form-container">
+        <form onsubmit="handleLogin(event)">
+            <label for="email">Email ID:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <label for="userType">User Type:</label>
+            <select id="userType" name="userType" required>
+                <option value="customer">Customer</option>
+                <option value="fuelstation">Fuel Station</option>
+                <option value="admin">Admin</option>
+            </select>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

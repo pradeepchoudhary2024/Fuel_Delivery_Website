@@ -1,0 +1,60 @@
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Fuel Stations</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Fuel Station Management</h2>
+        <input type="text" id="search" placeholder="Search Fuel Stations..." onkeyup="searchTable()">
+        <table>
+            <thead>
+                <tr>
+                    <th>FS ID</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                include 'db.php'; // Database connection file
+                $sql = "SELECT * FROM fuelstation";
+                $result = mysqli_query($conn, $sql);
+               
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<tr>
+                        <td>{$row['fsid']}</td>
+                        <td>{$row['fsname']}</td>
+                        <td>{$row['address']}</td>
+                        <td>{$row['email']}</td>
+                        <td>{$row['contact']}</td>
+                        <td>
+                            <button class='edit'>Edit</button>
+                            <button class='delete'>Delete</button>
+                        </td>
+                    </tr>";
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
+   
+    <script>
+        function searchTable() {
+            let input = document.getElementById("search").value.toUpperCase();
+            let rows = document.querySelectorAll("tbody tr");
+            rows.forEach(row => {
+                let text = row.innerText.toUpperCase();
+                row.style.display = text.includes(input) ? "" : "none";
+            });
+        }
+    </script>
+</body>
+</html>
+

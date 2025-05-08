@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Asset</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #f4f4f4;
+        }
+         .modal {
+width: 400px;
+background: white;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0,0,0,0.1);
+position: relative;
+}
+         .modal h2 {
+margin: 0 0 15px;
+text-align: center;
+}
+         .tabs {
+display: flex;
+gap: 5px;
+}
+         .tabs button {
+flex: 1;
+padding: 10px;
+border: none;
+cursor: pointer;
+background: #ddd;
+font-weight: bold;
+border-radius: 5px;
+}
+         .tabs .active {
+background: #6aa785;
+color: white;
+}
+         .form-group {
+margin-top: 15px;
+}
+         .form-group input {
+width: 100%;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+}
+         .error {
+color: red;
+font-size: 12px;
+margin-top: 5px;
+}
+         .add-btn {
+background: #6aa785;
+color: white;
+border: none;
+padding: 10px;
+width: 100%;
+border-radius: 5px;
+cursor: pointer;
+margin-top: 15px;
+        }
+</style>
+ </head>
+<body>
+<div class="modal">
+<h2>Add new asset</h2>
+<div class="tabs">
+<button class="tab-button active" onclick="switchTab(event, 'genset')">Genset</button>
+<button class="tab-button" onclick="switchTab(event, 'tank')">Tank</button>
+<button class="tab-button" onclick="switchTab(event, 'diesel')">Diesel On Tap</button>
+<button class="tab-button" onclick="switchTab(event, 'others')">Others</button>
+</div>
+<div id="form-container">
+<div class="form-group">
+<input type="text" placeholder="Name">
+</div>
+<div class="form-group">
+<input type="text" placeholder="Tank capacity">
+</div>
+            <div class="form-group">
+<input type="text" placeholder="Identification No (Plate no, Serial no etc)">
+</div>
+        </div>
+<button class="add-btn" onclick="addAsset()">Add asset</button>
+</div>
+    <script>
+function switchTab(event, tabName) {
+let buttons = document.getElementsByClassName("tab-button");
+for (let i = 0; i < buttons.length; i++) {
+buttons[i].classList.remove("active");
+            }
+event.currentTarget.classList.add("active");
+        }
+
+        function addAsset() {
+            window.location.href = 'order_page3.html';
+        }
+</script>
+</body>
+</html>
+                  

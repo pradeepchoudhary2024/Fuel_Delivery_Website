@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            background-color: #000000;
+            padding: 0 100px;
+            color: white;
+        }
+        .logo-container {
+            text-align: left;
+            position: relative;
+        }
+        .logo-container img {
+            width: 200px; /* Adjust size as needed */
+            display: block;
+            margin-bottom: 50px;
+            margin-left: 200px;
+            margin-top: 1px;
+        }
+        .logo-container h1 {
+            font-size: 70px;
+            font-weight: bold;
+            margin-left: 170px;
+        }
+        .logo-container h1 span {
+            color: #28a745;
+        }
+        .logo-container p {
+            font-size: 18px;
+            margin-left: 190px;
+        }
+        .container {
+            background: #dcdcdc;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .form-container {
+            padding: 20px;
+            width: 100%;
+            text-align: left;
+        }
+        .form-container h2 {
+            text-align: left;
+            margin-bottom: 20px;
+            font-size: 30px;
+            color: black;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: left;
+        }
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <img src="Admin.png" alt="Admin Logo">
+        <h1>Bor<span>Celle</span></h1>
+        <p>DOORSTEP FUEL DELIVERY</p>
+    </div>
+    <div class="container">
+        <div class="form-container">
+            <h2>Admin Login</h2>
+            <form>
+                <div class="form-group">
+                    <label for="admin-id">Admin ID</label>
+                    <input type="text" id="admin-id" name="admin-id" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
